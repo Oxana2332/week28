@@ -16,7 +16,6 @@ const tariffs = [{
   speed: "100",
   header: "red-header",
   section: "red-section",
-  isSelected: true
 }, {
   price: "1000",
   speed: "200",

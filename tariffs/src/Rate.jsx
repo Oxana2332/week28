@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './rate.css';
 
-function Rate(props) {
+export default function Rate(props) {
+
+    const [selected, setSelected] = useState(false);
+    const handleChange = () => {
+        setSelected(!selected);
+    }
+
     return (
-        <div className={props.isSelected?"rate-card_selected":"rate-card"}>
+        <div onClick={handleChange} className={selected ? "rate-card_selected" : "rate-card"}>
             <header className={`rate-header ${props.classHeader}`}>Безлимитный {props.price}</header>
             <section className={`rate-section ${props.classSection}`}>
-                <span className='rate-section_top'>руб</span> 
+                <span className='rate-section_top'>руб</span>
                 <span className='rate-price'>{props.price}</span>
                 <span className='rate-section_bottom'> /мес</span>
             </section>
@@ -15,5 +21,3 @@ function Rate(props) {
         </div>
     )
 }
-
-export default Rate
